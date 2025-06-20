@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+env/
+venv/
+.venv/
+.env/
+
+# VSCode settings
+.vscode/
+
+# Test and coverage outputs
+htmlcov/
+.coverage
+.cache/
+pytest_cache/
+.tox/
+.nox/
+
+# MyPy / Pyre / Pytype / other type checking
+.mypy_cache/
+.pytype/
+.pyre/
+.dmypy.json
+
+# Logs and output
+*.log
+
+# Python environment files
+Pipfile.lock
+poetry.lock
+.python-version
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# macOS metadata
+.DS_Store
+
+# dotenv files
+.env.*
