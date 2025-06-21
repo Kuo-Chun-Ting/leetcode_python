@@ -1,5 +1,5 @@
 from ...model import TreeNode
-from .iteration import Solution
+from .a2_iterative_traversal_with_valid_range import Solution
 
 
 def test_when_1_level_tree_then_return_true():
