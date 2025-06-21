@@ -5,7 +5,7 @@ from ...model import TreeNode
 
 
 @dataclass
-class QueueItem:
+class StackItem:
     depth: int
     node: TreeNode | None
 
@@ -15,18 +15,18 @@ class Solution:
         if not root:
             return 0
 
-        root_item = QueueItem(
+        root_item = StackItem(
             depth=1,
             node=root,
         )
-        queue: list[QueueItem] = [root_item]
+        queue: list[StackItem] = [root_item]
         max_depth = 0
 
         while queue:
             item = queue.pop()
             if item.node:
                 max_depth = max(max_depth, item.depth)
-                queue.append(QueueItem(depth=item.depth + 1, node=item.node.left))
-                queue.append(QueueItem(depth=item.depth + 1, node=item.node.right))
+                queue.append(StackItem(depth=item.depth + 1, node=item.node.left))
+                queue.append(StackItem(depth=item.depth + 1, node=item.node.right))
 
         return max_depth

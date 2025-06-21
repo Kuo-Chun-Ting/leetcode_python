@@ -6,7 +6,7 @@ from ...model import TreeNode
 
 
 @dataclass
-class QueueItem:
+class StackItem:
     node: TreeNode | None
     lower_bound: float
     upper_bound: float
@@ -17,16 +17,16 @@ class Solution:
         if not root:
             return True
 
-        queue: list[QueueItem] = [
-            QueueItem(
+        stack: list[StackItem] = [
+            StackItem(
                 node=root,
                 lower_bound=-math.inf,
                 upper_bound=math.inf,
             )
         ]
 
-        while queue:
-            item = queue.pop()
+        while stack:
+            item = stack.pop()
             if not item.node:
                 continue
 
@@ -37,15 +37,15 @@ class Solution:
             if node.val <= lower_bound or node.val >= upper_bound:
                 return False
 
-            queue.append(
-                QueueItem(
+            stack.append(
+                StackItem(
                     node=node.left,
                     lower_bound=lower_bound,
                     upper_bound=node.val,
                 )
             )
-            queue.append(
-                QueueItem(
+            stack.append(
+                StackItem(
                     node=node.right,
                     lower_bound=node.val,
                     upper_bound=upper_bound,
