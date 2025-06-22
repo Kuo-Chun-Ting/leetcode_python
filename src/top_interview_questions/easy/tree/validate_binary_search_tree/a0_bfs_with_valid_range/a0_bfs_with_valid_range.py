@@ -1,4 +1,5 @@
 import math
+from collections import deque
 from dataclasses import dataclass
 from typing import Optional
 
@@ -6,7 +7,7 @@ from ...model import TreeNode
 
 
 @dataclass
-class StackItem:
+class QueueItem:
     node: TreeNode | None
     lower_bound: float
     upper_bound: float
@@ -17,12 +18,12 @@ class Solution:
         if not root:
             return True
 
-        stack: list[StackItem] = [
-            StackItem(node=root, lower_bound=-math.inf, upper_bound=math.inf)
-        ]
+        queue: deque[QueueItem] = deque(
+            [QueueItem(node=root, lower_bound=-math.inf, upper_bound=math.inf)]
+        )
 
-        while stack:
-            item = stack.pop()
+        while queue:
+            item = queue.popleft()
             if not item.node:
                 continue
 
@@ -33,11 +34,11 @@ class Solution:
             if node.val <= lower_bound or node.val >= upper_bound:
                 return False
 
-            stack.append(
-                StackItem(node=node.left, lower_bound=lower_bound, upper_bound=node.val)
+            queue.append(
+                QueueItem(node=node.left, lower_bound=lower_bound, upper_bound=node.val)
             )
-            stack.append(
-                StackItem(
+            queue.append(
+                QueueItem(
                     node=node.right, lower_bound=node.val, upper_bound=upper_bound
                 )
             )
