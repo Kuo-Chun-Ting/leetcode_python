@@ -19,14 +19,14 @@ class Solution:
             depth=1,
             node=root,
         )
-        queue: list[StackItem] = [root_item]
+        stack: list[StackItem] = [root_item]
         max_depth = 0
 
-        while queue:
-            item = queue.pop()
+        while stack:
+            item = stack.pop()
             if item.node:
                 max_depth = max(max_depth, item.depth)
-                queue.append(StackItem(depth=item.depth + 1, node=item.node.left))
-                queue.append(StackItem(depth=item.depth + 1, node=item.node.right))
+                stack.append(StackItem(depth=item.depth + 1, node=item.node.left))
+                stack.append(StackItem(depth=item.depth + 1, node=item.node.right))
 
         return max_depth
