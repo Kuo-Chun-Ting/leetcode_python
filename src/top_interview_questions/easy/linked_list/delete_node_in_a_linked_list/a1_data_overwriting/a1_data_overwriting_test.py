@@ -4,9 +4,9 @@ from .a1_data_overwriting import Solution
 
 def test_when_delete_first_node_return_expected_result():
     # Arrange
-    head = ListNode(x=1)
-    head.next = ListNode(x=2)
-    head.next.next = ListNode(x=3)
+    head = ListNode(val=1)
+    head.next = ListNode(val=2)
+    head.next.next = ListNode(val=3)
 
     # Act
     Solution().deleteNode(head)
@@ -18,9 +18,9 @@ def test_when_delete_first_node_return_expected_result():
 
 def test_when_delete_middle_node_then_return_expected_result():
     # Arrange
-    head = ListNode(x=1)
-    head.next = ListNode(x=2)
-    head.next.next = ListNode(x=3)
+    head = ListNode(val=1)
+    head.next = ListNode(val=2)
+    head.next.next = ListNode(val=3)
 
     # Act
     Solution().deleteNode(head.next)
