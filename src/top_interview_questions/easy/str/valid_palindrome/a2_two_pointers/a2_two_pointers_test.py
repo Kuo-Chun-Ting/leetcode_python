@@ -37,6 +37,7 @@ def test_when_example3_then_return_expected_result():
 def test_when_example4_then_return_expected_result():
     # Arrange
     s = " "
+
     # Act
     result = Solution().isPalindrome(s)
 
