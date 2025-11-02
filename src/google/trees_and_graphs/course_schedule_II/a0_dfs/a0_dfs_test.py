@@ -43,7 +43,7 @@ def test_create_graph_when_exapmle1_then_return_expected_result():
     prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]]
 
     # Act
-    result = Solution().create_adjacency_list(prerequisites)
+    result = Solution().create_graph(prerequisites)
 
     # Assert
     assert result == {
