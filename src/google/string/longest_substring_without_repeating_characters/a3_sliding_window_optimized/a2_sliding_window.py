@@ -5,8 +5,8 @@ class Solution:
         seen: dict[str, int] = {}
 
         for i, c in enumerate(s):
-            while c in seen and seen[c] >= left:
-                left += 1
+            if c in seen and seen[c] >= left:
+                left = seen[c] + 1
 
             seen[c] = i
             max_len = max(max_len, right - left + 1)
