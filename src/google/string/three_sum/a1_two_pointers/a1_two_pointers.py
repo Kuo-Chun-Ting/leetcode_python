@@ -18,9 +18,7 @@ class Solution:
 
         return three_sum_pairs
 
-    def twoSum(
-        self, nums: list[int], from_idx: int, target: int
-    ) -> set[tuple[int, int]]:
+    def twoSum(self, nums: list[int], from_idx: int, target: int) -> list[list[int]]:
         left, right = from_idx, len(nums) - 1
         two_sum_pairs: list[list[int]] = []
 
