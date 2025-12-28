@@ -1,6 +1,8 @@
-from collections import Counter
-
 from .a3_one_pass_hash_table import Solution
+
+
+def normalize_order(two_sum: list[int]) -> list[int]:
+    return sorted(two_sum)
 
 
 def test_when_example1_then_return_expected_result():
@@ -12,7 +14,7 @@ def test_when_example1_then_return_expected_result():
     result = Solution().twoSum(nums, target)
 
     # Assert
-    assert Counter(result) == Counter([0, 1])
+    assert normalize_order(result) == normalize_order([0, 1])
 
 
 def test_when_example2_then_return_expected_result():
@@ -24,7 +26,7 @@ def test_when_example2_then_return_expected_result():
     result = Solution().twoSum(nums, target)
 
     # Assert
-    assert Counter(result) == Counter([1, 2])
+    assert normalize_order(result) == normalize_order([1, 2])
 
 
 def test_when_example3_then_return_expected_result():
@@ -36,4 +38,4 @@ def test_when_example3_then_return_expected_result():
     result = Solution().twoSum(nums, target)
 
     # Assert
-    assert Counter(result) == Counter([0, 1])
+    assert normalize_order(result) == normalize_order([0, 1])
